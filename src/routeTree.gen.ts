@@ -21,6 +21,7 @@ import { Route as DashboardFlashcardsRouteImport } from './routes/dashboard.flas
 import { Route as DashboardPlannerRouteImport } from './routes/dashboard.planner'
 import { Route as DashboardProgressRouteImport } from './routes/dashboard.progress'
 import { Route as DashboardQuizRouteImport } from './routes/dashboard.quiz'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as DashboardUploadRouteImport } from './routes/dashboard.upload'
 
 const IndexRoute = IndexRouteImport.update({
@@ -83,6 +84,11 @@ const DashboardQuizRoute = DashboardQuizRouteImport.update({
   path: '/quiz',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardUploadRoute = DashboardUploadRouteImport.update({
   id: '/upload',
   path: '/upload',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/planner': typeof DashboardPlannerRoute
   '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/dashboard/planner': typeof DashboardPlannerRoute
   '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/dashboard/planner': typeof DashboardPlannerRoute
   '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
     | '/dashboard/planner'
     | '/dashboard/progress'
     | '/dashboard/quiz'
+    | '/dashboard/settings'
     | '/dashboard/upload'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -162,6 +172,7 @@ export interface FileRouteTypes {
     | '/dashboard/planner'
     | '/dashboard/progress'
     | '/dashboard/quiz'
+    | '/dashboard/settings'
     | '/dashboard/upload'
     | '/dashboard'
   id:
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/dashboard/planner'
     | '/dashboard/progress'
     | '/dashboard/quiz'
+    | '/dashboard/settings'
     | '/dashboard/upload'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -276,6 +288,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardQuizRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/upload': {
       id: '/dashboard/upload'
       path: '/upload'
@@ -292,6 +311,7 @@ interface DashboardRouteChildren {
   DashboardPlannerRoute: typeof DashboardPlannerRoute
   DashboardProgressRoute: typeof DashboardProgressRoute
   DashboardQuizRoute: typeof DashboardQuizRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
   DashboardUploadRoute: typeof DashboardUploadRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -302,6 +322,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardPlannerRoute: DashboardPlannerRoute,
   DashboardProgressRoute: DashboardProgressRoute,
   DashboardQuizRoute: DashboardQuizRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
   DashboardUploadRoute: DashboardUploadRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
