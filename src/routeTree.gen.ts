@@ -19,6 +19,7 @@ import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardChatRouteImport } from './routes/dashboard.chat'
 import { Route as DashboardFlashcardsRouteImport } from './routes/dashboard.flashcards'
 import { Route as DashboardPlannerRouteImport } from './routes/dashboard.planner'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard.profile'
 import { Route as DashboardProgressRouteImport } from './routes/dashboard.progress'
 import { Route as DashboardQuizRouteImport } from './routes/dashboard.quiz'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
@@ -74,6 +75,11 @@ const DashboardPlannerRoute = DashboardPlannerRouteImport.update({
   path: '/planner',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardProgressRoute = DashboardProgressRouteImport.update({
   id: '/progress',
   path: '/progress',
@@ -105,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/chat': typeof DashboardChatRoute
   '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
   '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByTo {
   '/dashboard/chat': typeof DashboardChatRoute
   '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
   '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
@@ -137,6 +145,7 @@ export interface FileRoutesById {
   '/dashboard/chat': typeof DashboardChatRoute
   '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
   '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
@@ -155,6 +164,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/flashcards'
     | '/dashboard/planner'
+    | '/dashboard/profile'
     | '/dashboard/progress'
     | '/dashboard/quiz'
     | '/dashboard/settings'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/flashcards'
     | '/dashboard/planner'
+    | '/dashboard/profile'
     | '/dashboard/progress'
     | '/dashboard/quiz'
     | '/dashboard/settings'
@@ -186,6 +197,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/flashcards'
     | '/dashboard/planner'
+    | '/dashboard/profile'
     | '/dashboard/progress'
     | '/dashboard/quiz'
     | '/dashboard/settings'
@@ -274,6 +286,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardPlannerRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/progress': {
       id: '/dashboard/progress'
       path: '/progress'
@@ -309,6 +328,7 @@ interface DashboardRouteChildren {
   DashboardChatRoute: typeof DashboardChatRoute
   DashboardFlashcardsRoute: typeof DashboardFlashcardsRoute
   DashboardPlannerRoute: typeof DashboardPlannerRoute
+  DashboardProfileRoute: typeof DashboardProfileRoute
   DashboardProgressRoute: typeof DashboardProgressRoute
   DashboardQuizRoute: typeof DashboardQuizRoute
   DashboardSettingsRoute: typeof DashboardSettingsRoute
@@ -320,6 +340,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardChatRoute: DashboardChatRoute,
   DashboardFlashcardsRoute: DashboardFlashcardsRoute,
   DashboardPlannerRoute: DashboardPlannerRoute,
+  DashboardProfileRoute: DashboardProfileRoute,
   DashboardProgressRoute: DashboardProgressRoute,
   DashboardQuizRoute: DashboardQuizRoute,
   DashboardSettingsRoute: DashboardSettingsRoute,
