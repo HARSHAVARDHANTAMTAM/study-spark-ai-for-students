@@ -17,6 +17,7 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardChatRouteImport } from './routes/dashboard.chat'
+import { Route as DashboardQuizRouteImport } from './routes/dashboard.quiz'
 import { Route as DashboardUploadRouteImport } from './routes/dashboard.upload'
 
 const IndexRoute = IndexRouteImport.update({
@@ -59,6 +60,11 @@ const DashboardChatRoute = DashboardChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardQuizRoute = DashboardQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardUploadRoute = DashboardUploadRouteImport.update({
   id: '/upload',
   path: '/upload',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/api/chat': typeof ApiChatRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/api/chat': typeof ApiChatRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/api/chat': typeof ApiChatRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/chat'
     | '/dashboard/chat'
+    | '/dashboard/quiz'
     | '/dashboard/upload'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/chat'
     | '/dashboard/chat'
+    | '/dashboard/quiz'
     | '/dashboard/upload'
     | '/dashboard'
   id:
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/chat'
     | '/dashboard/chat'
+    | '/dashboard/quiz'
     | '/dashboard/upload'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -200,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardChatRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/quiz': {
+      id: '/dashboard/quiz'
+      path: '/quiz'
+      fullPath: '/dashboard/quiz'
+      preLoaderRoute: typeof DashboardQuizRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/upload': {
       id: '/dashboard/upload'
       path: '/upload'
@@ -212,12 +231,14 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardChatRoute: typeof DashboardChatRoute
+  DashboardQuizRoute: typeof DashboardQuizRoute
   DashboardUploadRoute: typeof DashboardUploadRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardChatRoute: DashboardChatRoute,
+  DashboardQuizRoute: DashboardQuizRoute,
   DashboardUploadRoute: DashboardUploadRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
