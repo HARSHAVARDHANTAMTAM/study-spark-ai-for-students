@@ -47,7 +47,14 @@ export const Route = createFileRoute("/dashboard")({
   component: DashboardLayout,
 });
 
-const navItems = [
+type NavItem = {
+  to: string;
+  label: string;
+  icon: typeof LayoutDashboard;
+  exact?: boolean;
+};
+
+const navItems: NavItem[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { to: "/dashboard/upload", label: "Upload Notes", icon: FileUp },
   { to: "/dashboard/chat", label: "AI Chat", icon: MessageSquareText },
@@ -57,7 +64,7 @@ const navItems = [
   { to: "/dashboard/progress", label: "Progress", icon: LineChart },
   { to: "/dashboard/settings", label: "Settings", icon: Settings },
   { to: "/dashboard/profile", label: "Profile", icon: User },
-] as const;
+];
 
 const notifications = [
   { title: "Operating Systems exam in 11 days", meta: "Planner reminder" },
@@ -103,7 +110,7 @@ function Shell() {
           return (
             <Link
               key={to}
-              to={to}
+              to={to as "/dashboard"}
               className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
                 active
                   ? "gradient-brand text-primary-foreground shadow-glow"
