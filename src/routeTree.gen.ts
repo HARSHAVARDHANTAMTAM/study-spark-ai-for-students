@@ -19,6 +19,7 @@ import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardChatRouteImport } from './routes/dashboard.chat'
 import { Route as DashboardFlashcardsRouteImport } from './routes/dashboard.flashcards'
 import { Route as DashboardPlannerRouteImport } from './routes/dashboard.planner'
+import { Route as DashboardProgressRouteImport } from './routes/dashboard.progress'
 import { Route as DashboardQuizRouteImport } from './routes/dashboard.quiz'
 import { Route as DashboardUploadRouteImport } from './routes/dashboard.upload'
 
@@ -72,6 +73,11 @@ const DashboardPlannerRoute = DashboardPlannerRouteImport.update({
   path: '/planner',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardProgressRoute = DashboardProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardQuizRoute = DashboardQuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/chat': typeof DashboardChatRoute
   '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByTo {
   '/dashboard/chat': typeof DashboardChatRoute
   '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   '/dashboard/chat': typeof DashboardChatRoute
   '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/progress': typeof DashboardProgressRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/flashcards'
     | '/dashboard/planner'
+    | '/dashboard/progress'
     | '/dashboard/quiz'
     | '/dashboard/upload'
     | '/dashboard/'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/flashcards'
     | '/dashboard/planner'
+    | '/dashboard/progress'
     | '/dashboard/quiz'
     | '/dashboard/upload'
     | '/dashboard'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/flashcards'
     | '/dashboard/planner'
+    | '/dashboard/progress'
     | '/dashboard/quiz'
     | '/dashboard/upload'
     | '/dashboard/'
@@ -250,6 +262,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardPlannerRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/progress': {
+      id: '/dashboard/progress'
+      path: '/progress'
+      fullPath: '/dashboard/progress'
+      preLoaderRoute: typeof DashboardProgressRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/quiz': {
       id: '/dashboard/quiz'
       path: '/quiz'
@@ -271,6 +290,7 @@ interface DashboardRouteChildren {
   DashboardChatRoute: typeof DashboardChatRoute
   DashboardFlashcardsRoute: typeof DashboardFlashcardsRoute
   DashboardPlannerRoute: typeof DashboardPlannerRoute
+  DashboardProgressRoute: typeof DashboardProgressRoute
   DashboardQuizRoute: typeof DashboardQuizRoute
   DashboardUploadRoute: typeof DashboardUploadRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
@@ -280,6 +300,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardChatRoute: DashboardChatRoute,
   DashboardFlashcardsRoute: DashboardFlashcardsRoute,
   DashboardPlannerRoute: DashboardPlannerRoute,
+  DashboardProgressRoute: DashboardProgressRoute,
   DashboardQuizRoute: DashboardQuizRoute,
   DashboardUploadRoute: DashboardUploadRoute,
   DashboardIndexRoute: DashboardIndexRoute,
