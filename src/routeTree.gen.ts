@@ -17,6 +17,7 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardChatRouteImport } from './routes/dashboard.chat'
+import { Route as DashboardFlashcardsRouteImport } from './routes/dashboard.flashcards'
 import { Route as DashboardPlannerRouteImport } from './routes/dashboard.planner'
 import { Route as DashboardQuizRouteImport } from './routes/dashboard.quiz'
 import { Route as DashboardUploadRouteImport } from './routes/dashboard.upload'
@@ -61,6 +62,11 @@ const DashboardChatRoute = DashboardChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardFlashcardsRoute = DashboardFlashcardsRouteImport.update({
+  id: '/flashcards',
+  path: '/flashcards',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardPlannerRoute = DashboardPlannerRouteImport.update({
   id: '/planner',
   path: '/planner',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/api/chat': typeof ApiChatRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/api/chat': typeof ApiChatRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/api/chat': typeof ApiChatRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/flashcards': typeof DashboardFlashcardsRoute
   '/dashboard/planner': typeof DashboardPlannerRoute
   '/dashboard/quiz': typeof DashboardQuizRoute
   '/dashboard/upload': typeof DashboardUploadRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/chat'
     | '/dashboard/chat'
+    | '/dashboard/flashcards'
     | '/dashboard/planner'
     | '/dashboard/quiz'
     | '/dashboard/upload'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/chat'
     | '/dashboard/chat'
+    | '/dashboard/flashcards'
     | '/dashboard/planner'
     | '/dashboard/quiz'
     | '/dashboard/upload'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/chat'
     | '/dashboard/chat'
+    | '/dashboard/flashcards'
     | '/dashboard/planner'
     | '/dashboard/quiz'
     | '/dashboard/upload'
@@ -224,6 +236,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardChatRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/flashcards': {
+      id: '/dashboard/flashcards'
+      path: '/flashcards'
+      fullPath: '/dashboard/flashcards'
+      preLoaderRoute: typeof DashboardFlashcardsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/planner': {
       id: '/dashboard/planner'
       path: '/planner'
@@ -250,6 +269,7 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardChatRoute: typeof DashboardChatRoute
+  DashboardFlashcardsRoute: typeof DashboardFlashcardsRoute
   DashboardPlannerRoute: typeof DashboardPlannerRoute
   DashboardQuizRoute: typeof DashboardQuizRoute
   DashboardUploadRoute: typeof DashboardUploadRoute
@@ -258,6 +278,7 @@ interface DashboardRouteChildren {
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardChatRoute: DashboardChatRoute,
+  DashboardFlashcardsRoute: DashboardFlashcardsRoute,
   DashboardPlannerRoute: DashboardPlannerRoute,
   DashboardQuizRoute: DashboardQuizRoute,
   DashboardUploadRoute: DashboardUploadRoute,
