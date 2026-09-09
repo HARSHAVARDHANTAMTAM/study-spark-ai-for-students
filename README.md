@@ -346,3 +346,119 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+# IBM Bob Technology Usage – StudySpark AI
+
+## 1. Overview
+
+StudySpark AI is an AI-powered Study Buddy designed to help students
+understand study materials, solve doubts, generate quizzes, and create
+personalized revision plans.
+
+IBM Bob is used as the core AI technology for the intelligent learning
+features of the application.
+
+## 2. How IBM Bob Is Used
+
+IBM Bob is used to provide:
+
+- AI-powered explanations
+- Doubt solving
+- Study material summarization
+- Quiz generation
+- Personalized revision assistance
+
+## 3. AI Study Workflow
+
+Student uploads study material
+        ↓
+StudySpark AI processes the material
+        ↓
+Relevant content is provided to IBM Bob
+        ↓
+IBM Bob generates an AI response
+        ↓
+Student receives a personalized explanation
+
+## 4. AI Explanation
+
+Students can ask questions about their study material.
+
+Example:
+
+"Explain this topic like I'm 10."
+
+IBM Bob generates a simplified explanation so that complex concepts
+can be understood more easily.
+
+## 5. Quiz Generation
+
+Students can select a topic or study material and request a quiz.
+
+IBM Bob is used to generate practice questions based on the learning
+content.
+
+The generated quiz can contain:
+
+- Multiple-choice questions
+- True/False questions
+- Short-answer questions
+
+Students can then attempt the quiz and receive their score.
+
+## 6. Personalized Revision Planning
+
+Students provide information such as:
+
+- Subjects
+- Topics
+- Exam date
+- Available study time
+
+IBM Bob is used to assist in generating a personalized revision plan
+based on this information.
+
+## 7. AI-Powered Learning Architecture
+
+Student
+   ↓
+StudySpark AI
+   ↓
+Study Material / User Input
+   ↓
+IBM Bob
+   ↓
+AI Response
+   ↓
+Explanation / Quiz / Revision Plan
+   ↓
+Student Progress
+
+## 8. Responsible AI
+
+API credentials and sensitive configuration are kept outside the source
+code using environment variables.
+
+The application is designed to use AI as a learning assistant rather
+than as a replacement for teachers or academic resources.
+
+## 9. Hackathon Alignment
+
+The implementation directly addresses the AI Study Buddy /
+Personalized Learning Agent problem statement by providing:
+
+- Study material interaction
+- Simplified explanations
+- AI-powered doubt solving
+- Quiz generation
+- Personalized revision planning
+
+## 10. Future Improvements
+
+Future versions could include:
+
+- Multilingual learning
+- Voice-based interaction
+- More advanced document retrieval
+- Adaptive difficulty based on student performance
+- More detailed learning analytics
